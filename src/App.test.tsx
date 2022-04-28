@@ -1,9 +1,11 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import App from './App';
+import { mockData } from './mock-settings-form-data';
 
-test('renders learn react link', () => {
+test('Should render all setting headers success', () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+  mockData.forEach((it) => {
+    screen.getByText(it.header)
+  })
 });
